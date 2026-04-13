@@ -9,6 +9,7 @@ This is the separated backend project for Filmedme.
 
 ## Structure
 
+- `SaaS-Stack/` architecture catalog (all options by domain)
 - `supabase/config.toml`
 - `supabase/migrations/`
 - `supabase/seed.sql`
