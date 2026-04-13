@@ -2,17 +2,17 @@
 
 This file marks the currently selected stack from the catalog.
 
-- Backend: `Supabase Edge Functions (TypeScript, Deno runtime)`
-- Database: `PostgreSQL` + `Supabase`
-- Auth: `Supabase Auth`
+- Backend: `NodeJS` + `Express` + `TypeScript`
+- Database: `PostgreSQL`
+- Auth: `JWT` + `bcrypt` (app-managed)
 - Payments: `Stripe` (planned)
 - Emails: `Resend` (planned)
-- Storage: `Supabase Storage`
-- Deployment: `Supabase` + `Render/Railway` (planned app API layer if needed)
+- Storage: `Local uploads now`, `S3-compatible storage planned`
+- Deployment: `Render/Railway/AWS` (planned)
 - Domains and DNS: `Cloudflare DNS` (planned)
 - Analytics: `PostHog` (planned)
 - Monitoring: `Sentry` + `UptimeRobot` (planned)
-- DevOps: `GitHub Actions` + `Docker` (planned)
+- DevOps: `GitHub Actions` + `Docker`
 - Search: `Meilisearch` (planned)
 - AI Integration: `OpenAI API` (planned)
 - Integrations: `Webhooks` + `n8n` (planned)

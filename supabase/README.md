@@ -1,10 +1,11 @@
-# Supabase Backend (Filmedme)
+# Supabase Backend (Legacy Reference)
 
-This directory contains the initial Filmedme backend scaffold:
+This directory contains the initial Filmedme backend scaffold used previously.
+The active runtime backend is now Node.js API at:
 
-- `migrations/`: schema, RLS policies, storage buckets, helper SQL functions
-- `seed.sql`: default system presets
-- `functions/`: edge functions written in TypeScript (Deno runtime)
+- `/Users/nookthawat/Project/filmedme-backend/SaaS-Stack/Backend/NodeJS/filmedme-api`
+
+Keep this folder only as a reference/migration source.
 
 ## Local workflow
 

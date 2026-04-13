@@ -8,4 +8,6 @@ This directory follows the exact SaaS stack structure you requested.
 
 Use this folder as the architecture map for planning, RFCs, and future changes.
 
-Current implemented backend code for Filmedme remains under `supabase/`.
+Current active backend code:
+
+- `SaaS-Stack/Backend/NodeJS/filmedme-api`

@@ -4,25 +4,25 @@ This is the separated backend project for Filmedme.
 
 ## Stack
 
-- Supabase (PostgreSQL, Auth, Storage, Realtime)
-- Edge Functions (TypeScript on Deno runtime)
+- Node.js + Express + TypeScript
+- PostgreSQL + JWT auth + file upload flow (multer)
 
 ## Structure
 
 - `SaaS-Stack/` architecture catalog (all options by domain)
-- `supabase/config.toml`
-- `supabase/migrations/`
-- `supabase/seed.sql`
-- `supabase/functions/`
+- `SaaS-Stack/Backend/NodeJS/filmedme-api/` active backend API
+- `supabase/` optional legacy reference
 
 ## Local run
 
-From this backend project root:
+From active Node API directory:
 
 ```bash
-supabase start
-supabase db reset
-supabase functions serve --env-file ./supabase/.env.local
+cd /Users/nookthawat/Project/filmedme-backend/SaaS-Stack/Backend/NodeJS/filmedme-api
+cp .env.example .env
+npm install
+npm run db:migrate
+npm run dev
 ```
 
 ## Notes
