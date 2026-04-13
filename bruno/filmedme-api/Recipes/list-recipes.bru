@@ -1,0 +1,19 @@
+meta {
+  name: List Recipes
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/recipes
+}
+
+headers {
+  Authorization: Bearer {{authToken}}
+}
+
+tests {
+  test("status is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+}

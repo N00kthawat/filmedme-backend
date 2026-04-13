@@ -1,7 +1,13 @@
 import { config } from "dotenv";
 import { z } from "zod";
 
-config();
+const loadedPrimary = config({ path: ".env" });
+if (loadedPrimary.error) {
+  config({ path: ".env.example" });
+} else {
+  // Fill optional defaults from example without overriding local secrets.
+  config({ path: ".env.example" });
+}
 
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
@@ -19,6 +25,7 @@ const parsed = envSchema.safeParse(process.env);
 if (!parsed.success) {
   // Stop startup early to avoid running with partial configuration.
   console.error("Invalid environment variables", parsed.error.flatten().fieldErrors);
+  console.error("Create .env from .env.example and set required values.");
   process.exit(1);
 }
 

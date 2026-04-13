@@ -1,0 +1,32 @@
+meta {
+  name: Create Project
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/projects
+}
+
+headers {
+  content-type: application/json
+  Authorization: Bearer {{authToken}}
+}
+
+body:json {
+  {
+    "title": "Bruno Project"
+  }
+}
+
+script:post-response {
+  if (res.status === 201 && res.body && res.body.project && res.body.project.id) {
+    bru.setEnvVar("projectId", res.body.project.id);
+  }
+}
+
+tests {
+  test("status is 201", function() {
+    expect(res.status).to.equal(201);
+  });
+}

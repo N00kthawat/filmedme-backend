@@ -1,0 +1,33 @@
+meta {
+  name: Upload File
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/files/upload
+}
+
+headers {
+  Authorization: Bearer {{authToken}}
+}
+
+body:multipart-form {
+  kind: image
+  file: @file({{uploadFilePath}})
+}
+
+script:post-response {
+  if (res.status === 201 && res.body && res.body.file && res.body.file.id) {
+    bru.setEnvVar("fileId", res.body.file.id);
+  }
+}
+
+tests {
+  test("status is 201", function() {
+    expect(res.status).to.equal(201);
+  });
+  test("file id exists", function() {
+    expect(res.body.file.id).to.be.a("string");
+  });
+}

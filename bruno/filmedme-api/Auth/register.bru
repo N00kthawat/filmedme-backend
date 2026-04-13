@@ -1,0 +1,28 @@
+meta {
+  name: Register
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/auth/register
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "email": "{{email}}",
+    "password": "{{password}}",
+    "handle": "{{handle}}",
+    "displayName": "{{displayName}}"
+  }
+}
+
+tests {
+  test("status is 201 or 409", function() {
+    expect([201, 409]).to.include(res.status);
+  });
+}

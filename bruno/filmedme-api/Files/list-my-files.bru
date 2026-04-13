@@ -1,0 +1,19 @@
+meta {
+  name: List My Files
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/files/mine
+}
+
+headers {
+  Authorization: Bearer {{authToken}}
+}
+
+tests {
+  test("status is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+}

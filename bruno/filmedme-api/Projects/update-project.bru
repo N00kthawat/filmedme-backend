@@ -1,0 +1,26 @@
+meta {
+  name: Update Project
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/projects/{{projectId}}
+}
+
+headers {
+  content-type: application/json
+  Authorization: Bearer {{authToken}}
+}
+
+body:json {
+  {
+    "status": "ready"
+  }
+}
+
+tests {
+  test("status is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+}

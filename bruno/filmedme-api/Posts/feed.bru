@@ -1,0 +1,19 @@
+meta {
+  name: Feed
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/posts/feed
+}
+
+params:query {
+  limit: {{feedLimit}}
+}
+
+tests {
+  test("status is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+}

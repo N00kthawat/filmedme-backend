@@ -1,10 +1,10 @@
 import type { PoolClient, QueryResultRow } from "pg";
 import { Pool } from "pg";
 
-import { env } from "./env";
+import { dbEnv } from "./db-env";
 
 const pool = new Pool({
-  connectionString: env.DATABASE_URL,
+  connectionString: dbEnv.DATABASE_URL,
 });
 
 export async function query<T extends QueryResultRow = QueryResultRow>(
