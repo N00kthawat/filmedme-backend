@@ -1,21 +1,17 @@
-# Filmedme Backend
+# Filmedme API (Node.js + TypeScript)
 
-This is the separated backend project for Filmedme.
+This is the active backend implementation for Filmedme.
 
-## Stack
+## Tech
 
-- Node.js + Express + TypeScript
-- PostgreSQL + JWT auth + file upload flow (multer)
+- Runtime: Node.js
+- Framework: Express
+- Language: TypeScript
+- Database: PostgreSQL
+- Auth: JWT + bcrypt
+- File flow: local upload (`multer`) + metadata in PostgreSQL
 
-## Structure
-
-- `SaaS-Stack/` architecture catalog (all options by domain)
-- `SaaS-Stack/Backend/NodeJS/filmedme-api/` active backend API
-- `supabase/` optional legacy reference
-
-## Local run
-
-From active Node API directory:
+## Setup
 
 ```bash
 cd /Users/nookthawat/Project/filmedme-backend/SaaS-Stack/Backend/NodeJS/filmedme-api
@@ -25,8 +21,25 @@ npm run db:migrate
 npm run dev
 ```
 
+Server starts at `http://localhost:4000`.
+
+## Main API routes
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/profiles/me`
+- `PATCH /api/profiles/me`
+- `POST /api/files/upload`
+- `GET /api/files/mine`
+- `POST /api/projects`
+- `GET /api/projects`
+- `PATCH /api/projects/:projectId`
+- `POST /api/recipes`
+- `GET /api/recipes`
+- `POST /api/posts/publish`
+- `GET /api/posts/feed`
+
 ## Notes
 
-- Keep frontend and backend as separate repositories.
-- Frontend app project path: `/Users/nookthawat/Project/filmedme`
-- Backend project path: `/Users/nookthawat/Project/filmedme-backend`
+- This backend does not use Supabase Edge Functions.
+- Existing `supabase/` folder is now optional reference, not the active API runtime.
